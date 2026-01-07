@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const findTheOldest = function(arr) {
+            let oldestAge = 0
+            let indexOfOldest = -1;
+            for(let i = 0; i<arr.length;i++){
+                if (arr[i].yearOfDeath > 0){
+                    age = arr[i].yearOfDeath -arr[i].yearOfBirth;
+                    console.log("Entered Normal")
+                }
+                else{
+                    age = new Date().getFullYear() - arr[i].yearOfBirth;
+                    console.log(age)
+                }
+
+                if(age>oldestAge){
+                        oldestAge = age
+                        indexOfOldest = i;
+                    }
+
+            }
+            return arr[indexOfOldest];
+        }
+
+
+        const people = [
+            {
+                name: "Carly",
+                yearOfBirth: 1066,
+            },
+            {
+                name: "Ray",
+                yearOfBirth: 1962,
+                yearOfDeath: 2011,
+            },
+            { 
+                name: "Jane",
+                yearOfBirth: 1912,
+                yearOfDeath: 1941,
+            },
+        ]
+
+        console.table(findTheOldest(people))
+    </script>
+</body>
+</html>
